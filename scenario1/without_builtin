@@ -1,0 +1,31 @@
+Without Built-in Functions
+#include <stdio.h>
+
+typedef struct {
+    double base_salary;
+    int experience_years;
+    double bonus;
+} Employee;
+
+double calculate_total_salary_without_builtins(Employee employees[], int size) {
+    double total_salary = 0;
+    for (int i = 0; i < size; i++) {
+        double bonus = employees[i].experience_years * employees[i].bonus;
+        if (bonus < 0) {
+            bonus = 0;
+        }
+        total_salary += employees[i].base_salary + bonus;
+    }
+    return total_salary;
+}
+
+int main() {
+    Employee employees[] = {
+        {50000, 3, 2000},
+        {60000, 5, 3000}
+    };
+    int size = sizeof(employees) / sizeof(employees[0]);
+    double total_salary = calculate_total_salary_without_builtins(employees, size);
+    printf("Total salary without built-in functions: %.2f\n", total_salary);
+    return 0;
+}
