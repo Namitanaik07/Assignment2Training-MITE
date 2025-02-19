@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <ctype.h>
+
+void formatUsernameWithBuiltins(char username[]) {
+    int i, j = 0;
+    char formattedUsername[100];
+
+    for (i = 0; username[i] != '\0'; i++) {
+        if (!isspace(username[i])) {
+            formattedUsername[j++] = tolower(username[i]);
+        }
+    }
+    formattedUsername[j] = '\0';
+
+    printf("Formatted username with built-ins: %s\n", formattedUsername);
+}
+
+int main() {
+    char username[] = "John Doe";
+    formatUsernameWithBuiltins(username);
+    return 0;
+}
