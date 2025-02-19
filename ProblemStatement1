@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Comparison function for qsort
+int compare(int a, int b) {
+    return a - b;
+}
+
+// Function to sort prices using built-in qsort
+void sortPricesWithBuiltins(int prices[], int size) {
+    qsort(prices, size, sizeof(int), compare);
+}
+
+int main() {
+    int prices[] = {300, 100, 200, 400, 500};
+    int size = sizeof(prices) / sizeof(prices[0]); // Calculate the number of elements in the array
+    sortPricesWithBuiltins(prices, size); // Sort the array
+
+    printf("Sorted prices with built-ins: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", prices[i]); // Print the sorted array
+    }
+    printf("\n");
+
+    return 0;
+}
