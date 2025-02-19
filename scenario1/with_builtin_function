@@ -16,3 +16,14 @@ double calculate_total_salary(Employee employees[], int size) {
     }
     return total_salary;
 }
+
+int main() {
+    Employee employees[] = {
+        {50000, 3, 2000},
+        {60000, 5, 3000}
+    };
+    int size = sizeof(employees) / sizeof(employees[0]);
+    double total_salary = calculate_total_salary(employees, size);
+    printf("Total salary: %.2f\n", total_salary);
+    return 0;
+}
